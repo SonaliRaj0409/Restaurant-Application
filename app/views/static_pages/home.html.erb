@@ -1,0 +1,79 @@
+<% provide(:title, "Home") %>
+<div class="jumbotron">
+  <h1>Order Delicious Food Online</h1>
+
+  <p>
+   Order Food Online From The Best Restaurant
+  </p>
+
+  <div class="row">
+    <div class="col-md-8 col-centered">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search ..." autofocus>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+</br>
+
+<div class="btns">
+<% if logged_in? %>
+<div class="btns">
+  <%= link_to "Restaurants", restaurants_path, class: "btn btn-lg btn-warning col-md-4" %>
+</div>
+<% else %>
+  <%= link_to "Signup", signup_path , class: "btn btn-lg btn-success col-md-3"%>
+  
+  <%= link_to "Restaurants", restaurants_path, class: "btn btn-lg btn-success col-md-3" %>
+<% end %>
+</div>
+</div>
+
+<div class = "row">
+   
+   <div class = "col-sm-6 col-md-4">
+      <div class = "thumbnail">
+         <img src="/assets/img1.jpg" alt = "Generic placeholder thumbnail">
+      </div>
+      
+      <div class = "caption">
+         <h3>Pizza Hut</h3>
+         
+      
+         
+      </div>
+   </div>
+   
+   <div class = "col-sm-6 col-md-4">
+      <div class = "thumbnail">
+         <img src = "/assets/img2.jpg" alt = "Generic placeholder thumbnail">
+      </div>
+      
+      <div class = "caption">
+         <h3>MCD</h3>
+         
+                 
+         
+         
+      </div>
+   </div>
+   
+   <div class = "col-sm-6 col-md-4">
+      <div class = "thumbnail">
+         <img src = "/assets/img3.jpg" alt = "Generic placeholder thumbnail">
+      </div>
+      
+      <div class = "caption">
+         <h3>Eat Some</h3>
+         
+         
+         
+      </div>
+   </div>
+   
+   
+   
+</div>

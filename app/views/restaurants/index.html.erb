@@ -1,0 +1,34 @@
+<% provide(:title, 'All Restaurants') %>
+
+<h1>All Restaurants</h1>
+<table class="table table-hover">
+ <% @restaurants.each do |restaurant| %>
+   <tr>
+      <td>
+     	  <%= image_tag restaurant.picture.url if restaurant.picture? %>
+      </td>
+      <td>
+        <%= link_to restaurant.name, class: 'btn pull-left' %> 
+      </td>
+      <td>
+            <%= link_to "Go To Menu", restaurant, :class => "btn btn-primary" %>
+        </td>
+        <td>
+            <%= link_to "Cuisines", restaurant, :class => "btn btn-success" %>
+        </td>
+
+      <% if !current_user?(@user) && current_user.admin?  %>
+        <td>
+          <%= link_to "Add new Menu", new_restaurant_menu_path(restaurant,@menus), :class => "btn btn-info" %>                          
+        </td>
+        <td>
+          <%= link_to "Update", edit_restaurant_path(restaurant), :class => "btn btn-info" %>                          
+        </td>
+        <td>
+             <%= link_to "delete", restaurant, method: :delete, :class => "btn btn-warning" %>                     
+          </td>
+        
+        <%end%>
+    </tr>
+  <% end %>
+</table>

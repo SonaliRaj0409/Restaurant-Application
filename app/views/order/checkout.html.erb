@@ -1,0 +1,36 @@
+<% provide(:title, 'Checkout') %>
+<h1>Congratulations! For Successfull Order</h1>
+
+<br><br>
+<% if @order.empty? %>
+   <p>No Items</p>
+<%else%>
+<p>Congrats
+<br>
+
+</p>
+<br><br>
+<% subtotal = 0 %>
+<% shipping = 0 %>
+<% total = 0 %>
+<ul>
+<% @order.each do |id,quantity| %>
+    <% menu = Menu.find_by_id(id) %>
+     <%= menu.name %>
+        <p><b>Rs.</b><%=menu.price%></p>
+        <p>Count: <%= quantity %></p>
+    <% subtotal += quantity * menu.price.to_f %>
+    <br><br>
+<% end %>
+ <p><b>Sub-Total: Rs.</b><%=subtotal%></p>
+ <% if subtotal<250 %>
+ <% shipping = 50 %>
+ <p><b>Charges: Rs.</b><%=shipping%> (Shipping is free but for that, order should be Rs 250)</p>
+ <% else %>
+ <% shipping = 0 %>
+ <p><b>Charges: Rs.</b><%=shipping%></p>
+ <%end%>
+ <p><b>Total: Rs.</b> <%=total = subtotal+shipping%> </p>
+ </ul>
+<%end%>
+<%= link_to "Submit", class: "btn btn-lg btn-success col-md-3"%>

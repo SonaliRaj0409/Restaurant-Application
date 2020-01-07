@@ -1,0 +1,26 @@
+<% provide(:title, @restaurant.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+    <table>
+    <tr style = "padding:5px">
+      <td>
+        <%= image_tag @restaurant.picture.url if @restaurant.picture? %>
+        </td>
+        <td>
+        <% provide(:title, '@restaurant.name') %>
+        </td>
+        <td>
+        <h>
+        <%= @restaurant.name %>
+        </h>
+        </td>
+     </tr>
+     </table>
+    </section>
+    </aside>
+</div>
+
+      <h3>Menus</h3>
+
+<%= render @menus, collection: @menus %>

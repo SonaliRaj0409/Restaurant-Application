@@ -1,0 +1,29 @@
+
+ <table class="table table-hover">
+   <tr class="lists">
+          <td>
+            <%= image_tag menu.picture.url if menu.picture? %>
+          </td>         
+          <td>
+            <ul >
+              <li><h><%= menu.name %></h></li>
+              <li>Price:<%= menu.price.to_f %></li>              
+             </ul>    
+          </td>
+        <% if logged_in? %>
+        <% if !current_user?(@user) && current_user.admin? %>
+          
+          <td>
+             <%= link_to "Delete",restaurant_menu_path(@restaurant, menu), method: :delete,:class => "btn btn-warning" %>
+          </td>
+          <%end%>
+          <td>
+            <a href="/order/<%=menu.id%>" class = "btn btn-success">Add To Cart</a>
+          </td>
+          <%else%>
+          <td>
+          <%= link_to "login", login_path , class: "btn pull-right"%>
+          </td>
+          <%end%>         
+      </tr>
+</table>

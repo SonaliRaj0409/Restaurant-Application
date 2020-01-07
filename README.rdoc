@@ -1,0 +1,15 @@
+# Restaurant Application
+
+User can select restaurant, see menus and select food. Admin can add restaurants, add menus.
+
+I am using Ruby 2.2.1.
+
+I am using Rails 4.2.2.
+
+For pagination I am using will_paginate.
+
+Add gem will_paginate and run bundle install.
+
+For image upload I am using carrierwave.
+
+Add gem 'carrierwave' and run bundle install.
